@@ -172,6 +172,8 @@ sudo systemctl enable --now tailscale-multi@tista
 
 ---
 
+với nhiều user, nên tách thành nhiều file và chỉ rõ đường dẫn, port sẽ ngon hơn
+
 ## 6. Giải Quyết Xử Lý Lỗi Thường Gặp (Troubleshooting)
 
 ### Lỗi 1: `tstun.New("tailscale0"): device or resource busy`
@@ -184,6 +186,10 @@ sudo systemctl enable --now tailscale-multi@tista
 * **Nguyên nhân:** Máy không có chip phần cứng TPM hoặc driver TPM chưa nạp.
 * **Khắc phục:** Đây là cảnh báo (*warning*), không làm gián đoạn hoạt động của Tailscale. Bỏ qua cảnh báo này nếu thấy dòng `Engine created.` tiếp theo.
 
+### Lỗi 3: `timeout khi ssh `
+có thể kiểm tra port
+sudo ufw allow 40001/udp
+sudo ufw allow 40002/udp
 ---
 
 ## 7. Phụ Lục Lệnh Liên Quan (Cheat Sheet)
