@@ -187,10 +187,16 @@ với nhiều user, nên tách thành nhiều file và chỉ rõ đường dẫn
 * **Khắc phục:** Đây là cảnh báo (*warning*), không làm gián đoạn hoạt động của Tailscale. Bỏ qua cảnh báo này nếu thấy dòng `Engine created.` tiếp theo.
 
 ### Lỗi 3: `timeout khi ssh `
-có thể kiểm tra port
+1. có thể kiểm tra port
 sudo ufw allow 40001/udp
 sudo ufw allow 40002/udp
+
+2. them --netfilter-mode=off vao conffi
+(Lưu ý: Tham số --netfilter-mode=off rất quan trọng để tránh việc các daemon Tailscale ghi đè hoặc xung đột luật iptables/nftables của nhau).
+3. sudo tailscale --socket=/home/ducanh/.tailscale/run/tailscaled-ducanh.sock up 
 ---
+
+
 
 ## 7. Phụ Lục Lệnh Liên Quan (Cheat Sheet)
 
